@@ -1,0 +1,44 @@
+<div class="mira-grid-development-plan-view-target-row">
+	<div class="mira-grid-development-plan-view-target-cell mira-grid-development-plan-view-target-cell-left">
+		<% _BUFFER.tmpl('grid/column_template/generic/title', {
+			title: data.stname,
+			titleColumn: nameCol,
+			dataColumn: nameCol.action.match(data),
+			classNameTitle: 'mira-grid-development-plan-view-target-title'
+		}); %>
+		<% if(data.notevaluated) { %>
+			<div class="mira-grid-development-plan-view-target-label-wrap
+				<%=data.scalemark ? 'mira-grid-development-plan-view-mark-scale' : (data.mark ? 'mira-grid-development-plan-view-mark-text' : 'mira-grid-development-plan-view-mark-empty')%>">
+				<% _BUFFER.tmpl('grid/column_template/development_plan/common/mark', {
+					label: 'Grid.Development.Plan.Evaluation.By.Purpose'.l(),
+					mark: data.mark,
+					num: 47,
+					scalemark: data.scalemark,
+					score: data.scoremark,
+					color: data.colormark
+				}); %>
+			</div>
+		<% } %>
+	</div>
+	<div class="mira-grid-development-plan-view-target-cell mira-grid-development-plan-view-target-cell-right">
+		<div class="mira-grid-development-plan-view-target-cell-right-wrap">
+			<% if(operationsCol) { %>
+				<div class="mira-grid-development-plan-view-target-operations" data-mira-grid-column="<%=operationsCol.id%>">
+					<% operationsTemplate.render({settings: operationsCol, data: data}, _BUFFER); %>
+				</div>
+			<% } %>
+			<% if(actionsCol) {
+				_BUFFER.tmpl('grid/column_template/development_plan/common/actions', {
+					data: data,
+					actionsCol: actionsCol,
+					actionsTemplate: actionsTemplate
+				});
+			} %>
+		</div>
+	</div>
+</div>
+<% if(data.quaarray) {
+	_BUFFER.tmpl('grid/column_template/development_plan/common/competence_collapser', {
+		data: data
+	});
+}%>

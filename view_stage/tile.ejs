@@ -1,0 +1,63 @@
+<% _BUFFER.tmpl('grid/column_template/development_plan/common/status', {
+	bg: data.statusbg,
+	color: data.statuscolor,
+	icon: data.statusicon,
+	name: data.statusidname
+}); %>
+<div class="mira-grid-development-plan-view-stage-cell-right-tile">
+	<% if(actionsCol) {
+		_BUFFER.tmpl('grid/column_template/development_plan/common/actions', {
+			data: data,
+			actionsCol: actionsCol,
+			actionsTemplate: actionsTemplate
+		});
+	}
+	if(checkCol && checkCol.match(data)) { %>
+		<div class="mira-grid-development-plan-view-check" data-mira-grid-column="<%=checkCol.id%>">
+			<% checkCol.render(data, row, 0, grid.dataset(), _BUFFER); %>
+		</div>
+	<% } %>
+</div>
+<% _BUFFER.tmpl('grid/column_template/generic/title', {
+	title: data.stname,
+	titleColumn: nameCol,
+	dataColumn: nameCol.action.match(data),
+	classNameTitle: 'mira-grid-development-plan-view-stage-title'
+});
+if(descCol) { %>
+	<div class="mira-grid-development-plan-view-stage-desc">
+		<%=data.stdesc%>
+	</div>
+<% }
+_BUFFER.tmpl('grid/column_template/development_plan/common/view_type_mentor', {
+	grid: grid,
+	data: data
+}); %>
+<div class="mira-grid-development-plan-view-stage-label-with-count">
+	<% if(data.quaarray) {
+		_BUFFER.tmpl('grid/column_template/development_plan/common/label_with_count', {
+			count: data.quaarray.length,
+			view: 'competence',
+			text: 'Grid.Development.Plan.Competencies'
+		});
+	}
+	if(data.commentcolumn) {
+		var hasComments = data.commentcolumn.comments && data.commentcolumn.comments.length;
+		if(hasComments) {
+			_BUFFER.tmpl('grid/column_template/development_plan/common/label_with_count', {
+				count: data.commentcolumn.comments.length,
+				view: 'comments',
+				text: 'Grid.Development.Plan.Comments'
+			});
+		}
+	} %>
+</div>
+<div class="mira-grid-development-plan-view-stage-bottom-tile
+	<%= !data.valid ? 'mira-grid-development-plan-view-stage-cell-valid' : '' %>">
+	<% _BUFFER.tmpl('grid/column_template/development_plan/common/stage_info', {
+		grid: grid,
+		data: data,
+		view: 'tile',
+		markNum: 35
+	}); %>
+</div>

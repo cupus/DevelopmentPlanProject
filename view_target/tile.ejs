@@ -1,0 +1,33 @@
+<% if(actionsCol) {
+	_BUFFER.tmpl('grid/column_template/development_plan/common/actions', {
+		data: data,
+		actionsCol: actionsCol,
+		actionsTemplate: actionsTemplate
+	});
+}
+_BUFFER.tmpl('grid/column_template/generic/title', {
+	title: data.stname,
+	titleColumn: nameCol,
+	dataColumn: nameCol.action.match(data),
+	classNameTitle: 'mira-grid-development-plan-view-target-title'
+});
+if(data.quaarray) {
+	_BUFFER.tmpl('grid/column_template/development_plan/common/label_with_count', {
+		count: data.quaarray.length,
+		view: 'competence',
+		text: 'Grid.Development.Plan.Competencies'
+	});
+}
+if(data.notevaluated) { %>
+	<div class="mira-grid-development-plan-view-target-label-wrap
+		<%=data.scalemark ? 'mira-grid-development-plan-view-mark-scale' : (data.mark ? 'mira-grid-development-plan-view-mark-text' : 'mira-grid-development-plan-view-mark-empty')%>">
+		<% _BUFFER.tmpl('grid/column_template/development_plan/common/mark', {
+			label: 'Grid.Development.Plan.Evaluation.By.Purpose'.l(),
+			mark: data.mark,
+			num: 35,
+			scalemark: data.scalemark,
+			score: data.scoremark,
+			color: data.colormark
+		}); %>
+	</div>
+<% } %>

@@ -1,0 +1,9 @@
+<% if(data.pdstatus) {
+	var bgImage = data.pdstatus.icon ? "background-image: url('" + data.pdstatus.icon + "');" : '',
+		color = data.pdstatus.color ? 'color: ' + data.pdstatus.color + ';' : '';
+%>
+	<div class="mira-grid-development-plan-status mira-grid-development-plan-status-<%=data.pdstatus.value%>"
+		style="<%=bgImage%> <%=color%>">
+		<%=data.pdstatus.caption%>
+	</div>
+<% } %>

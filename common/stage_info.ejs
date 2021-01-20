@@ -1,0 +1,74 @@
+<%
+var dateStartCol = grid.getColumnByField('stplannedstarttime') && grid.getColumnByField('stplannedstarttime').visible,
+	dateEndCol = grid.getColumnByField('stplannedendtime') && grid.getColumnByField('stplannedendtime').visible;
+
+function formatDate(date) {
+	return Application.getLocalizationService().parseAndFormatDate(date, 'yyyy-MM-dd HH:mm:ss.fff', 'dd.MM.yyyy')
+}
+%>
+
+<% if((data.stplannedstarttime && dateStartCol) || (data.stplannedendtime && dateEndCol)) { %>
+	<div class="mira-grid-development-plan-view-stage-label-wrap">
+		<div class="mira-grid-development-plan-view-stage-label">
+			<%='Grid.Development.Plan.Planned.Dates'.l()%>
+		</div>
+		<div class="mira-grid-development-plan-view-stage-dates-wrap">
+			<div class="mira-grid-development-plan-view-stage-dates">
+				<% if(data.stplannedstarttime && dateStartCol) { %>
+					<span class="mira-grid-development-plan-view-stage-date-start"><%=formatDate(data.stplannedstarttime)%></span>
+				<% } %>
+				<% if(data.stplannedstarttime && data.stplannedendtime && dateStartCol && dateEndCol) { %>
+					&#8211;
+				<% } %>
+				<% if(data.stplannedendtime && dateEndCol) { %>
+					<span class="mira-grid-development-plan-view-stage-date-end"><%=formatDate(data.stplannedendtime)%></span>
+				<% } %>
+			</div>
+		</div>
+	</div>
+<% }
+if(data.statusconfirm) { %>
+	<div class="mira-grid-development-plan-view-stage-label-wrap">
+		<div class="mira-grid-development-plan-view-stage-label">
+			<%='common.Confirmation'.l()%>
+		</div>
+		<div class="mira-grid-development-plan-view-stage-confirmation">
+			<%=data.statusconfirm%>
+		</div>
+	</div>
+<% }
+if(view == 'list') { %>
+	<div class="mira-grid-development-plan-view-stage-bottom">
+<% }
+	if(data.notevaluated) { %>
+		<div class="mira-grid-development-plan-view-stage-label-wrap
+			<%=data.scalemark ? 'mira-grid-development-plan-view-mark-scale' : (data.mark ? 'mira-grid-development-plan-view-mark-text' : 'mira-grid-development-plan-view-mark-empty')%>"
+			<% (!data.scalemark && data.mark) && _BUFFER.inserted(function() {
+				var heightMark = this.innerHeight();
+				this.css({'height' : heightMark + 'px'});
+			}); %>>
+			<div class="mira-grid-development-plan-view-mark-text-wrap">
+				<% _BUFFER.tmpl('grid/column_template/development_plan/common/mark', {
+					label: 'DataView.mark'.l(),
+					mark: data.mark,
+					num: markNum,
+					scalemark: data.scalemark,
+					score: data.scoremark,
+					color: data.colormark
+				}); %>
+			</div>
+		</div>
+	<% }
+	if(data.stfactendtime) { %>
+		<div class="mira-grid-development-plan-view-stage-label-wrap">
+			<div class="mira-grid-development-plan-view-stage-label">
+				<%='Grid.Development.Plan.Completed'.l()%>
+			</div>
+			<div class="mira-grid-development-plan-view-stage-completed">
+				<%=formatDate(data.stfactendtime)%>
+			</div>
+		</div>
+	<% }
+if(view == 'list') { %>
+	</div>
+<% } %>

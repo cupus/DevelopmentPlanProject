@@ -1,0 +1,10 @@
+<% if(data.employee) { %>
+<div class="mira-grid-development-plan-employee">
+	<div class="mira-grid-development-plan-employee-photo-wrap">
+		<img class="mira-grid-development-plan-employee-photo" src="<%=data.employee.photoURL%>" alt=""/>
+	</div>
+	<div class="mira-grid-development-plan-employee-name">
+		<%=data.employee.fullName%>
+	</div>
+</div>
+<% } %>

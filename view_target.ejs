@@ -1,0 +1,30 @@
+<%  var app = Application,
+		cmpFactory = app.getComponentFactory(),
+		templateCreate = function(path) {
+			return cmpFactory.create({
+				rtype: 'ClientTemplate',
+				isName: true,
+				value: path
+			});
+		},
+		operationsTemplate = templateCreate('grid/columns/inline_operation'),
+		operationsCol = grid.getColumnByField('inlineoperations'),
+		actionsTemplate = templateCreate('grid/columns/drop_down_operation'),
+		actionsCol = grid.getColumnByField('operations'),
+		nameCol = grid.getColumnByField('stname'),
+		targetText = data.targettext ? data.targettext : 'DataView.goal'.l();
+%>
+
+<div class="mira-grid-development-plan-view-target <%= !data.valid ? 'mira-grid-development-plan-view-target-valid' : '' %>">
+	<div class="mira-grid-development-plan-view-target-target">
+		<%=targetText%>
+	</div>
+	<% _BUFFER.tmpl('grid/column_template/development_plan/view_target/' + view, {
+		data: data,
+		nameCol: nameCol,
+		actionsCol: actionsCol,
+		actionsTemplate: actionsTemplate,
+		operationsCol: operationsCol,
+		operationsTemplate: operationsTemplate
+	}); %>
+</div>

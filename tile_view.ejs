@@ -1,0 +1,15 @@
+<%
+	var obj = {
+		Stage: 'grid/column_template/development_plan/view_stage',
+		stagesection: 'grid/column_template/development_plan/view_target'
+	};
+%>
+
+<div class="mira-grid-development-plan-tile-view">
+	<% _BUFFER.tmpl(obj[data.type], {
+		data: data,
+		grid: grid,
+		row: i,
+		view: 'tile'
+	}); %>
+</div>

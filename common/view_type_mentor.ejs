@@ -1,0 +1,67 @@
+<%
+var views = grid.getColumnByField('sttype').calcValues,
+	view = views.filter(function(i) { return i.value == data.sttype;}),
+	stadvisornameCol = grid.getColumnByField('stadvisorname'),
+	viewCol = grid.getColumnByField('sttype'),
+	typeCol = grid.getColumnByField('typersname'),
+	reportingformCol = grid.getColumnByField('reportingformidname'),
+	viewTypeHide = !viewCol.visible && !typeCol.visible;
+%>
+
+<div class="mira-grid-development-plan-view-stage-row mira-grid-development-plan-view-stage-row-view
+	mira-grid-development-plan-view-stage-row-view-type-<%=viewTypeHide ? 'hide' : ''%>">
+	<% if(viewCol && viewCol.visible) { %>
+		<div class="mira-grid-development-plan-view-stage-cell mira-grid-development-plan-view-stage-width-50">
+			<div class="mira-grid-development-plan-view-stage-label">
+				<%=viewCol.name%>
+			</div>
+			<div class="mira-grid-development-plan-view-stage-view">
+				<%=view[0].caption%>
+			</div>
+		</div>
+	<% } %>
+	<% if(data.typersname && typeCol && typeCol.visible) { %>
+		<div class="mira-grid-development-plan-view-stage-cell mira-grid-development-plan-view-stage-width-50">
+			<div class="mira-grid-development-plan-view-stage-label">
+				<%=typeCol.name%>
+			</div>
+			<div class="mira-grid-development-plan-view-stage-type">
+				<%=data.typersname%>
+			</div>
+		</div>
+	<% } %>
+	<% if(data.stadvisorname && stadvisornameCol && stadvisornameCol.visible) { %>
+		<div class="mira-grid-development-plan-view-stage-cell mira-grid-development-plan-view-stage-width-mentor">
+			<div class="mira-grid-development-plan-view-stage-row mira-grid-development-plan-view-stage-row-mentor">
+				<div class="mira-grid-development-plan-view-stage-cell">
+					<div class="mira-grid-development-plan-view-stage-label">
+						<%=stadvisornameCol.name%>
+					</div>
+					<div class="mira-grid-development-plan-view-stage-mentor">
+						<img class="mira-grid-development-plan-view-stage-mentor-icon" src="<%=data.stadvisoricon%>" alt=""/>
+						<% _BUFFER.tmpl('grid/column_template/generic/title', {
+							title: data.stadvisorname,
+							titleColumn: stadvisornameCol,
+							dataColumn: stadvisornameCol.action.match(data),
+							classNameTitle: 'mira-grid-development-plan-view-stage-mentor-name'
+						}); %>
+					</div>
+				</div>
+			</div>
+		</div>
+	<% } %>
+	<% if(data.reportingformidname && reportingformCol && reportingformCol.visible) { %>
+	<div class="mira-grid-development-plan-view-stage-cell mira-grid-development-plan-view-stage-width-reportingform">
+		<div class="mira-grid-development-plan-view-stage-row mira-grid-development-plan-view-stage-row-reportingform">
+			<div class="mira-grid-development-plan-view-stage-cell">
+				<div class="mira-grid-development-plan-view-stage-label">
+					<%=reportingformCol.name%>
+				</div>
+				<div class="mira-grid-development-plan-view-stage-reportingform">
+					<%=data.reportingformidname%>
+				</div>
+			</div>
+		</div>
+	</div>
+	<% } %>
+</div>

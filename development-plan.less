@@ -1,0 +1,997 @@
+.mira-grid-development-plan {
+	&-row-view { // .mira-grid-development-plan-row-view
+		padding-bottom: 20px;
+		background-color: #fff;
+
+		.mira-data-view-candidate-events-item-comments {
+			margin: 0;
+		}
+	}
+
+	&-view {
+		&-target { // .mira-grid-development-plan-view-target
+			&-target { // .mira-grid-development-plan-view-target-target
+				display: inline-block;
+				padding: 4px 7px 2px 7px;
+				font-size: 14px;
+				line-height: 1.29;
+				font-weight: 500;
+				color: #fff;
+				background-color: #d0d5da;
+			}
+
+			&-title { // .mira-grid-development-plan-view-target-title
+				border-width: 0;
+				font-size: 20px;
+				line-height: 1.1;
+				font-weight: 300;
+				color: #3c5052;
+				word-break: normal;
+				word-wrap: normal;
+
+				&.mira-grid-cell-action {
+					cursor: pointer;
+				}
+			}
+
+			&-mark { // .mira-grid-development-plan-view-target-mark
+
+			}
+
+			&-row { // .mira-grid-development-plan-view-target-row
+				display: table;
+				width: 100%;
+				background-color: #d0d5da;
+			}
+
+			&-cell {
+				display: table-cell;
+				vertical-align: top;
+
+				&-left { // .mira-grid-development-plan-view-target-cell-left
+					padding: 12px 20px;
+					width: 100%;
+				}
+
+				&-right { // .mira-grid-development-plan-view-target-cell-right
+					padding: 12px 15px 12px 18px;
+					border-left: 2px solid #f1f2f2;
+
+					&-wrap { // .mira-grid-development-plan-view-target-cell-right-wrap
+						display: table;
+						width: 100%;
+
+						.mira-grid-development-plan-view-actions,
+						.mira-grid-development-plan-view-target-operations {
+							display: table-cell;
+							vertical-align: top;
+						}
+					}
+				}
+			}
+
+			&-operations { // .mira-grid-development-plan-view-target-operations
+				.mira-grid-cell-operation {
+					margin: 0;
+					padding: 7px 15px 6px;
+
+					& + .mira-grid-cell-operation {
+						margin-top: 3px;
+						margin-left: 0;
+					}
+				}
+			}
+
+			.mira-grid-development-plan-view {
+				&-label { // .mira-grid-development-plan-view-label
+					display: inline-block;
+					vertical-align: top;
+					padding-top: 1px;
+					padding-right: 10px;
+				}
+
+				&-mark { // .mira-grid-development-plan-view-mark
+					display: inline-block;
+
+					&-wrap { // .mira-grid-development-plan-view-mark-wrap
+						display: inline-block;
+					}
+
+					&-text,   // .mira-grid-development-plan-view-mark-text
+					&-empty { // .mira-grid-development-plan-view-mark-empty
+						.mira-grid-development-plan-view-mark {
+							color: #3c5052;
+						}
+					}
+				}
+			}
+
+			.mira-grid-development-plan-view-competence {
+				&-wrap { // .mira-grid-development-plan-view-competence-wrap
+					margin-bottom: 8px;
+				}
+			}
+
+			.mira-grid-cell-dropdown-operation {
+				&:before {
+					background-image: url(../../images/operation-dropdown-icon-dark.png);
+				}
+
+				&.expanded,
+				&:hover {
+					background-color: #475d73;
+				}
+			}
+
+			&-valid { // .mira-grid-development-plan-view-target-valid
+				.mira-grid-development-plan-view-target {
+					&-target { // .mira-grid-development-plan-view-target-target
+						background-color: #ff5c5c;
+					}
+
+					&-row { // .mira-grid-development-plan-view-target-row
+						background-color: #feebeb;
+					}
+
+					&-cell-right { // .mira-grid-development-plan-view-target-cell-right
+						border-left-color: rgba(255,255,255,0.5);
+					}
+
+					&-title { // .mira-grid-development-plan-view-target-title
+						color: #425052;
+
+						&:hover {
+							color: #2aa9dc;
+						}
+					}
+				}
+
+				.mira-grid-development-plan-view-mark-text .mira-grid-development-plan-view-mark,
+				.mira-grid-development-plan-view-mark-empty .mira-grid-development-plan-view-mark {
+					color: #425052;
+				}
+			}
+		}
+
+		&-stage { // .mira-grid-development-plan-view-stage
+			&-title { // .mira-grid-development-plan-view-stage-title
+				position: static;
+				padding: 0;
+				border-width: 0;
+				font-size: 20px;
+				line-height: 1.1;
+				font-weight: 300;
+				color: #425052;
+				cursor: pointer;
+				word-break: normal;
+			}
+
+			&-desc { // .mira-grid-development-plan-view-stage-desc
+				font-size: 12px;
+				line-height: 1.35;
+				color: #3c5052;
+			}
+
+			&-row { // .mira-grid-development-plan-view-stage-row
+				display: table;
+				width: 100%;
+			}
+
+			&-cell { // .mira-grid-development-plan-view-stage-cell
+				display: table-cell;
+				vertical-align: top;
+
+				&-left { // .mira-grid-development-plan-view-stage-cell-left
+					position: relative;
+					width: 220px;
+					background-color: #f4f7f7;
+
+					.mira-grid-development-plan-view-label,
+					.mira-grid-development-plan-view-stage-label {
+						padding-bottom: 3px;
+						font-size: 13px;
+						line-height: 1.38;
+						color: #8e9a9b;
+
+						&-wrap { // .mira-grid-development-plan-view-stage-label-wrap
+							margin: 5px 10px 0 10px;
+							padding: 7px 5px 0 10px;
+						}
+					}
+				}
+
+				&-right { // .mira-grid-development-plan-view-stage-cell-right
+					padding: 14px 15px 20px 20px;
+					background-color: rgba(244,247,247,0.5);
+
+					.mira-grid-development-plan-view-stage-label {
+						padding: 20px 0 6px 0;
+						font-size: 12px;
+						line-height: 1.17;
+					}
+				}
+
+				&-valid { // .mira-grid-development-plan-view-stage-cell-valid
+					background-color: #feebeb;
+				}
+			}
+
+			&-width-40 { // .mira-grid-development-plan-view-stage-width-40
+				width: 40%;
+			}
+
+			&-width-50 { // .mira-grid-development-plan-view-stage-width-50
+				width: 50%;
+			}
+
+			&-width-60 { // .mira-grid-development-plan-view-stage-width-60
+				width: 60%;
+			}
+
+			&-width-100 { // .mira-grid-development-plan-view-stage-width-100
+				width: 100%;
+			}
+
+			&-bottom { // .mira-grid-development-plan-view-stage-bottom
+				position: absolute;
+				bottom: 0;
+				padding-bottom: 18px;
+				width: 100%;
+			}
+
+			&-status { // .mira-grid-development-plan-view-stage-status
+				position: relative;
+				padding: 11px 15px 11px 40px;
+				font-size: 12px;
+				line-height: 1.17;
+				font-weight: 500;
+				text-transform: uppercase;
+				background-color: #fff;
+
+				&-icon { // .mira-grid-development-plan-view-stage-status-icon
+					position: absolute;
+					top: 7px;
+					left: 10px;
+					width: 22px;
+					height: 22px;
+					background-repeat: no-repeat;
+					background-position: 0 0;
+					background-size: 100% 100%;
+				}
+			}
+
+			&-label { // .mira-grid-development-plan-view-stage-label
+				color: #8e9a9b;
+			}
+
+			&-dates { // .mira-grid-development-plan-view-stage-dates
+				display: inline-block;
+				padding-left: 25px;
+				color: @chesalinaRefersToItAsStandardGreyColorLetUsUseTheSameDescriptiveVariableName;
+				background: url(../../images/icon-grid-my-measures-view-content-date.png) no-repeat;
+			}
+
+			&-view,  // .mira-grid-development-plan-view-stage-view
+			&-type { // .mira-grid-development-plan-view-stage-type
+				display: inline-block;
+				padding: 4px 6px 2px 6px;
+				line-height: 1;
+				border-radius: 2px;
+				color: @chesalinaRefersToItAsStandardGreyColorLetUsUseTheSameDescriptiveVariableName;
+				background-color: #dbdbda;
+			}
+
+			&-mentor { // .mira-grid-development-plan-view-stage-mentor
+				overflow: hidden;
+
+				&-icon { // .mira-grid-development-plan-view-stage-mentor-icon
+					float: left;
+					width: 24px;
+					height: 24px;
+					border-radius: 50%;
+				}
+
+				&-name { // .mira-grid-development-plan-view-stage-mentor-name
+					margin-left: 32px;
+					padding: 4px 0 0 0;
+					border-width: 0;
+					cursor: pointer;
+				}
+			}
+
+			&-reportingform { // .mira-grid-development-plan-view-stage-reportingform
+				margin-top: 4px;
+				color: @chesalinaRefersToItAsStandardGreyColorLetUsUseTheSameDescriptiveVariableName;
+			}
+
+			&-comments { // .mira-grid-development-plan-view-stage-comments
+			}
+
+			&-operations { // .mira-grid-development-plan-view-stage-operations
+				float: right;
+				margin: 30px -45px 10px 20px;
+			}
+
+			.mira-grid-development-plan-view-mark-text {
+				position: relative;
+				padding: 0!important;
+
+				&:hover {
+					.mira-grid-development-plan-view-mark {
+						max-height: 100%;
+						overflow: visible;
+
+						&-text-wrap { // .mira-grid-development-plan-view-mark-text-wrap
+							position: absolute;
+							z-index: 2;
+							padding-bottom: 7px;
+							height: auto !important;
+							background-color: #fff;
+							box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
+						}
+
+						&-short { // .mira-grid-development-plan-view-mark-short
+							display: none;
+						}
+
+						&-long { // .mira-grid-development-plan-view-mark-long
+							display: inline-block;
+						}
+					}
+				}
+
+				.mira-grid-development-plan-view-mark-text-wrap {
+					padding: 7px 5px 0 10px;
+				}
+
+				.mira-grid-development-plan-view-mark {
+					overflow: hidden;
+					max-height: 30px;
+					line-height: 1.14;
+					color: #3c5052;
+				}
+			}
+
+			.mira-grid-cell-dropdown-operation {
+				&:before {
+					background-image: url(../../images/operation-dropdown-icon-light.png);
+				}
+			}
+		}
+
+		&-comments,    // .mira-grid-development-plan-view-comments
+		&-competence { // .mira-grid-development-plan-view-competence
+			&-caption { // .mira-grid-development-plan-view-comments  .mira-grid-development-plan-view-competence-caption
+				display: inline-block;
+				padding: 2px 3px 2px 7px;
+				font-size: 12px;
+				line-height: 1.17;
+				color: #fff;
+				border-radius: 20px;
+				background-color: #95a8ad;
+			}
+
+			&-toggle-count { // .mira-grid-development-plan-view-competence-toggle-count
+				display: inline-block;
+				padding: 0 4px;
+				border-radius: 20px;
+				background-color: #738a90;
+				text-align: center;
+			}
+		}
+
+		&-competence { // .mira-grid-development-plan-view-competence
+			&-toggle { // .mira-grid-development-plan-view-competence-toggle
+				&.open {
+					.mira-drop-down-container-head-caption-item:after {
+						border-width: 0 4px 4px 4px;
+						border-color: transparent transparent #fff transparent;
+					}
+				}
+			}
+
+			&-item { // .mira-grid-development-plan-view-competence-item
+				margin-top: 8px;
+				font-size: 20px;
+				line-height: 1.29;
+				color: #3c5052;
+
+				&:before {
+					content: @fa-var-star;
+					display: inline-block;
+					margin-right: 7px;
+					font-size: 20px;
+					font-family: "FontAwesome";
+					color: #2aa9dc;
+				}
+			}
+
+			.mira-collapser-caption,
+			.mira-grid-development-plan-view-competence-label {
+				display: inline-block;
+				margin-bottom: 8px;
+				padding: 2px 7px;
+				border-radius: 20px;
+				font-size: 12px;
+				line-height: 1.17;
+				color: #fff;
+				background-color: #b8c6ca;
+			}
+
+			.mira-collapser-caption {
+				cursor: pointer;
+
+				&:after {
+					content: '';
+					display: inline-block;
+					vertical-align: top;
+					margin-top: 5px;
+					width: 0;
+					height: 0;
+					border-style: solid;
+					border-width: 0 4px 4px 4px;
+					border-color: transparent transparent #fff transparent;
+				}
+			}
+
+			.is-collapsed {
+				.mira-collapser-caption {
+					margin-bottom: 0;
+
+					&:after {
+						border-width: 4px 4px 0 4px;
+						border-color: #fff transparent transparent transparent;
+					}
+				}
+			}
+		}
+
+		&-mark { // .mira-grid-development-plan-view-mark
+			&-scale { // .mira-grid-development-plan-view-mark-scale
+				.mira-grid-development-plan-view-mark {
+					display: inline-block;
+					overflow: hidden;
+					padding: 0 4px;
+					height: 22px;
+					line-height: 19px;
+					font-weight: 500;
+					color: #3c5052;
+					box-sizing: border-box;
+					border-radius: 4px;
+					border: 2px solid #ffc700;
+					background: #ffc700;
+				}
+			}
+
+			&-value { // .mira-grid-development-plan-view-mark-value
+				display: inline-block;
+				float: left;
+				padding: 1px 7px 0 7px;
+				margin-left: -4px;
+				margin-right: 4px;
+				min-width: 25px;
+				min-height: 18px;
+				box-sizing: border-box;
+				font-size: 18px;
+				line-height: 0.89;
+				color: #3c5052;
+				border-radius: 2px;
+				background: #ffdc5f;
+			}
+
+			&-short { // .mira-grid-development-plan-view-mark-short
+				display: inline-block;
+			}
+
+			&-long { // .mira-grid-development-plan-view-mark-long
+				display: none;
+			}
+		}
+
+		&-actions { // .mira-grid-development-plan-view-actions
+			float: right;
+			margin-left: 10px;
+
+			.mira-grid-cell-dropdown-operation {
+				width: 25px;
+				height: 24px;
+
+				&:before {
+					top: 6px;
+					left: 5px;
+				}
+
+				&-list { // .mira-grid-cell-dropdown-operation-list
+					right: 0;
+					border-radius: 0;
+					color: #425052;
+					box-shadow: 0 2px 10px 0 rgba(0,0,0,0.16);
+				}
+
+				&-caption { // .mira-grid-cell-dropdown-operation-caption
+					&:hover {
+						color: #0aa4dc;
+					}
+				}
+			}
+		}
+
+		&-check { // .mira-grid-development-plan-view-check
+			float: right;
+			margin-top: 4px;
+		}
+	}
+
+	&-status { // .mira-grid-development-plan-status
+		padding: 3px 0 3px 30px;
+		min-height: 16px; // 22
+		background-repeat: no-repeat;
+		background-size: 22px auto;
+
+		&-0 {
+			color: #00aade;
+			background-image: url("../../images/icon-inprogress.svg");
+		}
+
+		&-1 {
+			color: #62b723;
+			background-image: url("../../images/icon-successful.svg");
+		}
+
+		&-2 {
+			color: #f4796f;
+			background-image: url("../../images/icon-fail.svg");
+		}
+
+		&-3 {
+			color: #b4c4c8;
+			background-image: url("../../images/icon-cancel.svg");
+		}
+
+		&-4 {
+			color: #518392;
+			background-image: url("../../images/icon-constr.svg");
+		}
+
+		&-5 {
+			color: #ff970f;
+			background-image: url("../../images/icon-approve.svg");
+		}
+
+		&-6 {
+			color: #62b723;
+			background-image: url("../../images/icon-approved.svg");
+		}
+
+		&-7 {
+			color: #f4796f;
+			background-image: url("../../images/icon-notapproved.svg");
+		}
+	}
+
+	&-progress { // .mira-grid-development-plan-progress
+		font-size: 0;
+
+		&-value { // .mira-grid-development-plan-progress-value
+			display: inline-block;
+			vertical-align: top;
+			padding-right: 5px;
+			font-size: 14px;
+			color: #354346;
+
+			&-wrap { // .mira-grid-development-plan-progress-value-wrap
+				padding-bottom: 1px;
+			}
+		}
+
+		&-visual { // .mira-grid-development-plan-progress-visual
+			overflow: hidden;
+			width: 70px;
+			height: 5px;
+			border-radius: 2.5px;
+			background-color: #dfe3e4;
+		}
+
+		&-bar { // .mira-grid-development-plan-progress-bar
+			height: 100%;
+			border-radius: 2.5px;
+			background: #8eca36;
+		}
+
+		&-stages { // .mira-grid-development-plan-progress-stages
+			display: inline-block;
+			vertical-align: top;
+			padding-top: 2px;
+			font-size: 12px;
+			color: #aeb5b6;
+		}
+	}
+
+	&-employee { // .mira-grid-development-plan-employee
+		display: table;
+		word-break: normal;
+		word-wrap: normal;
+
+		&-photo { // .mira-grid-development-plan-employee-photo
+			margin-right: 11px;
+			width: 30px;
+			height: 30px;
+
+			&-wrap { // .mira-grid-development-plan-employee-photo-wrap
+				display: table-cell;
+				vertical-align: middle;
+			}
+		}
+
+		&-name { // .mira-grid-development-plan-employee-name
+			display: table-cell;
+			vertical-align: middle;
+			color: #354346;
+		}
+	}
+
+	&-row-view { // .mira-grid-development-plan-row-view
+		padding-bottom: 20px;
+		background-color: #fff;
+
+		.mira-data-view-candidate-events-item-comments {
+			margin: 0;
+		}
+
+		.mira-grid-development-plan {
+			&-view { // .mira-grid-development-plan-view
+				&-target { // .mira-grid-development-plan-view-target
+					&-label-wrap { // .mira-grid-development-plan-view-target-label-wrap
+						padding-top: 15px;
+					}
+
+					&-title { // .mira-grid-development-plan-view-target-title
+						padding: 4px 0 0 0;
+					}
+
+					.mira-grid-development-plan-view {
+						&-competence { // .mira-grid-development-plan-view-competence
+							padding: 11px 20px;
+							background-color: #f4f7f7;
+
+							&-toggle-count { // .mira-grid-development-plan-view-competence-toggle-count
+								margin: 0 4px 0 7px;
+							}
+						}
+
+						&-label { // .mira-grid-development-plan-view-label
+							font-size: 13px;
+							line-height: 1.23;
+							color: #7e92a6;
+						}
+
+						&-mark-scale { // .mira-grid-development-plan-view-mark-scale
+							.mira-grid-development-plan-view-label {
+								padding-top: 4px;
+							}
+						}
+					}
+
+					.mira-grid-cell-dropdown-operation {
+						margin-top: 2px;
+					}
+				}
+
+				&-stage { // .mira-grid-development-plan-view-stage
+					margin-left: 10px;
+
+					&-row { // .mira-grid-development-plan-view-stage-row
+						&.mira-grid-development-plan-view-stage-col-one {
+							.mira-grid-development-plan-view-stage-width-40 {
+								display: block;
+							}
+						}
+
+						&-view { // .mira-grid-development-plan-view-stage-row-view
+							display: block;
+
+							.mira-grid-development-plan-view-stage-width-50,
+							.mira-grid-development-plan-view-stage-width-mentor,
+							.mira-grid-development-plan-view-stage-width-reportingform {
+								display: block;
+								float: left;
+							}
+
+							.mira-grid-development-plan-view-stage-width-mentor,
+							.mira-grid-development-plan-view-stage-width-reportingform {
+								width: 50%;
+							}
+						}
+					}
+
+					&-status { // .mira-grid-development-plan-view-stage-status
+						margin-top: 10px;
+						margin-left: -10px;
+						width: 175px;
+					}
+
+					&-title { // .mira-grid-development-plan-view-stage-title
+						margin-bottom: 13px;
+					}
+
+					&-desc { // .mira-grid-development-plan-view-stage-desc
+						margin-bottom: 19px;
+					}
+
+					&-dates { // .mira-grid-development-plan-view-stage-dates
+						padding-top: 2px;
+						background-position: 0 2px;
+					}
+
+					.mira-grid-development-plan-view-competence {
+						margin-top: 26px;
+
+						&-toggle-count { // .mira-grid-development-plan-view-competence-toggle-count
+							margin: 0 4px 0 7px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&-tile-view { // .mira-grid-development-plan-tile-view
+		.mira-grid-development-plan {
+			&-view { // .mira-grid-development-plan-view
+				&-target { // .mira-grid-development-plan-view-target
+					position: relative;
+					padding: 18px 20px;
+					height: 452px;
+					box-sizing: border-box;
+					background-color: #d0d5da;
+
+					&-target { // .mira-grid-development-plan-view-target-target
+						margin-left: -20px;
+						padding-left: 20px;
+					}
+
+					&-label-wrap {
+						position: absolute;
+						left: 0;
+						bottom: 0;
+						padding: 0 20px 18px 20px;
+						width: 100%;
+						box-sizing: border-box;
+					}
+
+					&-title { // .mira-grid-development-plan-view-target-title
+						padding: 11px 0 10px 0;
+					}
+
+					&-valid { // .mira-grid-development-plan-view-target-valid
+						background-color: #feebeb;
+					}
+
+					.mira-grid-development-plan-view {
+						&-label { // .mira-grid-development-plan-view-label
+							font-size: 11px;
+							line-height: 1.64;
+							letter-spacing: 0.76px;
+							color: #a4d8ec;
+							text-transform: uppercase;
+						}
+
+						&-mark { // .mira-grid-development-plan-view-mark
+							&-wrap { // .mira-grid-development-plan-view-mark-wrap
+								float: right;
+							}
+
+							&-scale { // .mira-grid-development-plan-view-mark-scale
+								.mira-grid-development-plan-view-label {
+									padding-top: 3px;
+								}
+							}
+						}
+					}
+				}
+
+				&-stage { // .mira-grid-development-plan-view-stage
+					position: relative;
+					padding: 12px 20px 15px 20px;
+					height: 452px;
+					box-sizing: border-box;
+					background-color: #fafbfb;
+
+					&-cell-right-tile { // .mira-grid-development-plan-view-stage-cell-right-tile
+						float: right;
+						padding-top: 6px;
+					}
+
+					&-row-view,          // .mira-grid-development-plan-view-stage-row-view
+					&-row-mentor,        // .mira-grid-development-plan-view-stage-row-mentor
+					&-label-with-count { // .mira-grid-development-plan-view-stage-label-with-count
+						position: absolute;
+						left: 0;
+						padding: 0 20px;
+						width: 100%;
+						box-sizing: border-box;
+					}
+
+					&-row { // .mira-grid-development-plan-view-stage-row
+						&-view { // .mira-grid-development-plan-view-stage-row-view
+							top: 144px;
+
+							.mira-grid-development-plan-view-stage-width-50,
+							.mira-grid-development-plan-view-stage-width-mentor {
+								display: block;
+								float: left;
+							}
+
+							.mira-grid-development-plan-view-stage-width-reportingform {
+								display: none;
+							}
+
+							&-type { // .mira-grid-development-plan-view-stage-row-view-type
+								&-hide { // .mira-grid-development-plan-view-stage-row-view-type-hide
+									.mira-grid-development-plan-view-stage-row-mentor {
+										top: 0;
+									}
+								}
+							}
+						}
+
+						&-mentor { // .mira-grid-development-plan-view-stage-row-mentor
+							top: 58px;
+						}
+
+						.mira-grid-development-plan-view-stage-label {
+							padding: 16px 0 4px 0;
+							font-size: 12px;
+							line-height: 1.17;
+						}
+					}
+
+					&-mentor-name { // .mira-grid-development-plan-view-stage-mentor-name
+						overflow: hidden;
+						height: 1.215em;
+					}
+
+					&-label-with-count { // .mira-grid-development-plan-view-stage-label-with-count
+						display: table;
+						top: 280px;
+						width: 100%;
+
+						.mira-grid-development-plan-view-comments,
+						.mira-grid-development-plan-view-competence {
+							display: table-cell;
+							width: 50%;
+						}
+					}
+
+					&-bottom-tile { // .mira-grid-development-plan-view-stage-bottom-tile
+						position: absolute;
+						left: 0;
+						bottom: 0;
+						padding: 14px 20px 8px 20px;
+						width: 100%;
+						box-sizing: border-box;
+						background-color: #f4f7f7;
+
+						.mira-grid-development-plan-view-label,
+						.mira-grid-development-plan-view-stage-label {
+							padding-bottom: 10px;
+							font-size: 13px;
+							line-height: 1.38;
+							color: #8e9a9b;
+						}
+
+						.mira-grid-development-plan-view-mark-text {
+							margin-top: -7px;
+						}
+
+						&.mira-grid-development-plan-view-stage-cell-valid {
+							background-color: #feebeb;
+						}
+					}
+
+					&-title { // .mira-grid-development-plan-view-stage-title
+						overflow: hidden;
+						margin-top: 7px;
+						margin-bottom: 11px;
+						max-height: 2.2em;
+					}
+
+					&-desc { // .mira-grid-development-plan-view-stage-desc
+						overflow: hidden;
+						max-height: 2.667em;
+					}
+
+					&-status { // .mira-grid-development-plan-view-stage-status
+						display: inline-block;
+						margin-left: -20px;
+					}
+
+					&-view,  // .mira-grid-development-plan-view-stage-view
+					&-type { // .mira-grid-development-plan-view-stage-type
+						overflow: hidden;
+						white-space: nowrap;
+						text-overflow: ellipsis;
+						box-sizing: border-box;
+						margin-right: 23px;
+						max-width: 170px;
+					}
+
+					.mira-grid-development-plan-view-mark-text-wrap,
+					&-label-wrap { // .mira-grid-development-plan-view-stage-label-wrap
+						display: table;
+						width: 100%;
+					}
+
+					&-label,          // .mira-grid-development-plan-view-stage-label
+					&-dates-wrap,     // .mira-grid-development-plan-view-stage-dates-wrap
+					&-confirmation,   // .mira-grid-development-plan-view-stage-confirmation
+					&-completed,      // .mira-grid-development-plan-view-stage-completed
+					.mira-grid-development-plan-view-label,
+					.mira-grid-development-plan-view-mark-wrap {
+						display: table-cell;
+						vertical-align: top;
+					}
+
+					.mira-grid-development-plan-view-mark-scale {
+						.mira-grid-development-plan-view-label {
+							vertical-align: middle;
+						}
+					}
+
+					&-dates-wrap,    // .mira-grid-development-plan-view-stage-dates-wrap
+					&-confirmation,  // .mira-grid-development-plan-view-stage-confirmation
+					&-completed,     // .mira-grid-development-plan-view-stage-completed
+					.mira-grid-development-plan-view-mark-wrap {
+						color: @chesalinaRefersToItAsStandardGreyColorLetUsUseTheSameDescriptiveVariableName;
+						text-align: right;
+					}
+
+					&-dates { // .mira-grid-development-plan-view-stage-dates
+						background-position: 0 0;
+					}
+
+					.mira-grid-development-plan-view-mark,
+					&-confirmation { // .mira-grid-development-plan-view-stage-confirmation
+						color: #3c5052;
+					}
+
+					.mira-grid-development-plan-view-mark-text {
+						.mira-grid-development-plan-view-mark-text-wrap {
+							margin: 0 -10px 0 -10px;
+							padding-right: 10px;
+						}
+					}
+				}
+
+				&-comments-toggle-count,    // .mira-grid-development-plan-view-comments-toggle-count
+				&-competence-toggle-count { // .mira-grid-development-plan-view-competence-toggle-count
+					margin: 0 0 0 7px;
+				}
+			}
+		}
+	}
+
+	&-group { // .mira-grid-development-plan-group
+		.mira-grid-scrollable-tile {
+			&-item-wrap { // .mira-grid-scrollable-tile-item-wrap
+				margin-bottom: 20px;
+			}
+
+			&-body-expanded { // .mira-grid-scrollable-tile-body-expanded
+				.mira-grid-scrollable-tile-loading {
+					display: none;
+				}
+			}
+		}
+
+		.mira-horizontal-scroll-container-arrow {
+			top: 50%;
+			margin-top: -22px;
+		}
+
+		.mira-grid-scrollable-tile-loading-text,
+		.mira-grid-my-measures-scroll-tile-view-link-view-all {
+			height: 452px;
+		}
+	}
+}

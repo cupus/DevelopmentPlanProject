@@ -1,0 +1,17 @@
+<% var units = '%'; %>
+<% if(data.pdprogress) { %>
+<div class="mira-grid-development-plan-progress">
+	<div class="mira-grid-development-plan-progress-value-wrap">
+		<span class="mira-grid-development-plan-progress-value"><%=data.pdprogress.value%><%=units%></span>
+			<span class="mira-grid-development-plan-progress-stages">
+				<%='Grid.Development.Plan.Stages'.l({
+					completedStages: data.pdprogress.completedStages,
+					totalStages: data.pdprogress.totalStages
+				})%>
+			</span>
+	</div>
+	<div class="mira-grid-development-plan-progress-visual">
+		<div class="mira-grid-development-plan-progress-bar" style="width: <%=data.pdprogress.value%>%"></div>
+	</div>
+</div>
+<% } %>

@@ -1,0 +1,25 @@
+<div class="mira-grid-development-plan-view-competence">
+	<% if(data.quacollapsed){
+		var count = '<span class="mira-grid-development-plan-view-competence-toggle-count">' + data.quaarray.length + '</span>';
+
+		_BUFFER.cmp({
+			rtype: 'Collapser',
+			caption: 'Grid.Development.Plan.Competencies.Count'.l({count: count}),
+			collapsed: true,
+			allowUnsafeHtml: true,
+			body: {
+				rtype: 'Template',
+				isName: true,
+				value: 'grid/column_template/development_plan/common/competence',
+				data: {
+					quaarray: data.quaarray
+				}
+			}
+		});
+	} else { %>
+		<div class="mira-grid-development-plan-view-competence-label"><%='Grid.Development.Plan.Competencies'.l()%></div>
+		<% _BUFFER.tmpl('grid/column_template/development_plan/common/competence', {
+			data: data
+		});
+	} %>
+</div>

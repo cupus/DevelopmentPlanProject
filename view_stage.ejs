@@ -1,0 +1,33 @@
+<%
+var app = Application,
+	cmpFactory = app.getComponentFactory(),
+	templateCreate = function(path) {
+		return cmpFactory.create({
+			rtype: 'ClientTemplate',
+			isName: true,
+			value: path
+		});
+	},
+	checkCol = grid.getColumnByField('choose'),
+	actionsTemplate = templateCreate('grid/columns/drop_down_operation'),
+	actionsCol = grid.getColumnByField('operations'),
+	operationsTemplate = templateCreate('grid/columns/inline_operation'),
+	operationsCol = grid.getColumnByField('inlineoperations'),
+	nameCol = grid.getColumnByField('stname'),
+	descCol = grid.getColumnByField('stdesc') && grid.getColumnByField('stdesc').visible;
+%>
+
+<div class="mira-grid-development-plan-view-stage">
+	<% _BUFFER.tmpl('grid/column_template/development_plan/view_stage/' + view, {
+		grid: grid,
+		data: data,
+		row: row,
+		checkCol: checkCol,
+		nameCol: nameCol,
+		actionsCol: actionsCol,
+		actionsTemplate: actionsTemplate,
+		operationsCol: operationsCol,
+		operationsTemplate: operationsTemplate,
+		descCol: descCol
+	}); %>
+</div>

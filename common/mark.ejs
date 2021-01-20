@@ -1,0 +1,36 @@
+<% var NS = Mira.Models.Components.Style;
+
+function getColor(color) {
+    return Mira.Models.Components.Utils.Color.fromRGBStr(color).lightenBy(40);
+}
+
+function stringSlice(text, textLength) {
+    var textSlice = text.slice(0, textLength);
+
+    if (textSlice.length < text.length) {
+        textSlice += '&#8230;';
+    }
+
+    return textSlice;
+}
+%>
+
+<div class="mira-grid-development-plan-view-label">
+    <%=label%>
+</div>
+<div class="mira-grid-development-plan-view-mark-wrap">
+	<div class="mira-grid-development-plan-view-mark"
+		<%=(color && scalemark) && new NS({backgroundColor: color, borderColor: color})%>>
+		<% if(!mark) { %>
+			<%='Grid.Development.Plan.Mark.Empty'.l()%>
+		<% } else if(scalemark) { %>
+			<span class="mira-grid-development-plan-view-mark-value" <%=(color && scalemark) && new NS({backgroundColor: getColor(color)})%>>
+				<%=score%>
+			</span>
+			<%=mark%>
+		<% } else { %>
+			<span class="mira-grid-development-plan-view-mark-short"><%=stringSlice(mark, num)%></span>
+			<span class="mira-grid-development-plan-view-mark-long"><%=mark%></span>
+		<% } %>
+	</div>
+</div>
